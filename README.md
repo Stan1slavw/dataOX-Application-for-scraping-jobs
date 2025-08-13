@@ -10,7 +10,7 @@ Suitable for analyzing open vacancies by functions (Software Engineering, Produc
 - Parsing vacancies from [jobs.techstars.com](https://jobs.techstars.com)
 - Filtering by function or slug
 - Saving to PostgreSQL
-- Exporting data to SQL dump
+- Exporting data to SQL dump. Dumb.sql is located in the root of the project in the dumbs folder
 - Working via Docker or directly from IDE
 - Built-in web interface on Thymeleaf
 
