@@ -14,7 +14,7 @@ bash
 git clone https://github.com/dataOX-Application-for-scraping-jobs.git
 cd dataOX-Application-for-scraping-jobs
 
-## 3. Running with Docker (Recommended)
+## 3. Running with Docker 
 This will start:
 PostgreSQL database
 Selenium Standalone Chrome
