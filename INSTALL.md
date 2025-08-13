@@ -11,8 +11,8 @@ Before starting, make sure you have installed:
 
 ## 2. Clone the Repository
 bash
-git clone https://github.com/<this-repo>.git
-cd <this-repo>
+git clone https://github.com/dataOX-Application-for-scraping-jobs.git
+cd dataOX-Application-for-scraping-jobs
 
 3. Running with Docker (Recommended)
 This will start:
