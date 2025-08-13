@@ -14,7 +14,7 @@ bash
 git clone https://github.com/dataOX-Application-for-scraping-jobs.git
 cd dataOX-Application-for-scraping-jobs
 
-3. Running with Docker (Recommended)
+## 3. Running with Docker (Recommended)
 This will start:
 PostgreSQL database
 Selenium Standalone Chrome
@@ -27,7 +27,7 @@ bash
 docker compose up --build
 After all containers are healthy, the application will be available at:
 
-4. Running from IDE (Local Development)
+## 4. Running from IDE (Local Development)
 Make sure PostgreSQL and Selenium are running.
 You can do this via:
 
@@ -50,7 +50,7 @@ Set Active Profiles = local.
 Run the application from IDE.
 Access it at http://localhost:8080.
 
-5. Dump Files
+## 5. Dump Files
 Scraped job data will be exported to a .sql file in the directory set via:
 
 properties
