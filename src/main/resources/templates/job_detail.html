@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${job.positionName} ?: 'Job Detail'">Job Detail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .job-container {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .job-header {
+      display: flex;
+      align-items: center;
+    }
+    .job-logo {
+      max-width: 80px;
+      max-height: 80px;
+      margin-right: 15px;
+    }
+    .job-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .job-company {
+      font-size: 18px;
+      color: #555;
+    }
+    .job-meta {
+      margin: 10px 0;
+      color: #666;
+    }
+    .job-description {
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    .tags {
+      margin-top: 15px;
+    }
+    .tag {
+      display: inline-block;
+      background: #f2f2f2;
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin: 3px;
+      font-size: 13px;
+    }
+    .back-link {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      background: #007bff;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 4px;
+    }
+    .back-link:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="job-container">
+  <div class="job-header">
+    <img th:if="${job.logoUrl != null}" th:src="${job.logoUrl}" alt="Logo" class="job-logo"/>
+    <div>
+      <div class="job-title" th:text="${job.positionName}">Position Name</div>
+      <div class="job-company">
+        <a th:if="${job.organizationUrl != null}" th:href="${job.organizationUrl}" target="_blank"
+           th:text="${job.organizationTitle}">Company</a>
+        <span th:if="${job.organizationUrl == null}" th:text="${job.organizationTitle}">Company</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-meta">
+    <div>
+      <strong>Location:</strong>
+      <span th:text="${job.location} ?: '-'">Location</span>
+    </div>
+    <div>
+      <strong>Posted Date:</strong>
+      <span th:text="${job.postedDate != null
+                ? #dates.format(new java.util.Date(job.postedDate * 1000L), 'dd.MM.yyyy')
+                : '-'}">Date</span>
+    </div>
+    <div>
+      <strong>Labor Function:</strong>
+      <span th:text="${job.laborFunction} ?: '-'">Function</span>
+    </div>
+  </div>
+
+  <div class="job-description" th:utext="${job.description}">Job description here...</div>
+
+  <div class="tags" th:if="${job.tags != null and !job.tags.isEmpty()}">
+    <strong>Tags:</strong>
+    <span th:each="tag : ${job.tags}" class="tag" th:text="${tag}">Tag</span>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <a th:href="${job.jobUrl}" target="_blank">View Original Job Posting</a>
+  </div>
+
+  <a th:href="@{/}" class="back-link">← Back to Jobs</a>
+</div>
+</body>
+</html>

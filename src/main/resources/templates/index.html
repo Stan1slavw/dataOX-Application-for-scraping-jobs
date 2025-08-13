@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Job Scraper - Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="container py-4">
+<h1>Job Scraper — jobs.techstars.com</h1>
+
+<form action="/jobs" method="post" class="row g-3" id="scrapeForm" novalidate>
+    <div class="col-md-6">
+        <label for="function" class="form-label">Job function</label>
+        <select class="form-select" id="function" name="function">
+            <option value="" selected>-- choose or type --</option>
+            <option th:each="f : ${functions}" th:value="${f}" th:text="${f}"></option>
+        </select>
+        <div class="form-text">Можно выбрать из списка или ввести slug ниже.</div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="slug" class="form-label">Or enter function slug</label>
+        <input type="text" class="form-control" id="slug" name="slug"
+               placeholder="e.g. software-engineering">
+        <div class="form-text">Работает даже если селект сверху пустой.</div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Scrape &amp; Show</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('scrapeForm').addEventListener('submit', function (e) {
+        const fn = document.getElementById('function').value.trim();
+        const slug = document.getElementById('slug').value.trim();
+        if (!fn && !slug) {
+            e.preventDefault();
+            alert('Выберите функцию в списке или введите slug.');
+        }
+    });
+</script>
+</body>
+</html>
