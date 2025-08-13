@@ -19,6 +19,8 @@ This will start:
 PostgreSQL database
 Selenium Standalone Chrome
 
+After launching via Docker, I recommend entering "docker logs -f techstars_app" in the IDE console. And wait for a while, via Docker it works longer than via launching in IDE.
+
 
 Spring Boot application
 bash
